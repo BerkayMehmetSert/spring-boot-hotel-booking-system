@@ -6,6 +6,6 @@ public record BookingDto(
         String id,
         BookingCustomerDto customer,
         BookingBookingDateDto bookingDate,
-        List<BookingRoom> rooms
+        List<BookingRoomDto> rooms
 ) {
 }

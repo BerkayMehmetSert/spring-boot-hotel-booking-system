@@ -1,8 +1,10 @@
 package com.bms.hotelbookingsystem.dto;
 
+import java.time.LocalDate;
+
 public record BookingBookingDateDto(
         String id,
-        String checkInDate,
-        String checkOutDate
+        LocalDate checkInDate,
+        LocalDate checkOutDate
 ) {
 }

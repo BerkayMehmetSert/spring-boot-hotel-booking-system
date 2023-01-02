@@ -15,6 +15,6 @@ public record CustomerDto(
         String country,
         String zipCode,
         List<CustomerRoomDto> rooms,
-        List<CustomerRatingDto> ratings
+        List<CustomerRoomRatingDto> roomRatings
 ) {
 }

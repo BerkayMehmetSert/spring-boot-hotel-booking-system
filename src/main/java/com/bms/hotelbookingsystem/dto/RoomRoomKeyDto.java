@@ -1,6 +1,6 @@
 package com.bms.hotelbookingsystem.dto;
 
-public record RoomRoomKey(
+public record RoomRoomKeyDto(
         String id,
         String keyCode,
         Boolean isActive,

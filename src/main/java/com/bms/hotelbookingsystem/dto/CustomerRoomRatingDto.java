@@ -1,6 +1,6 @@
 package com.bms.hotelbookingsystem.dto;
 
-public record CustomerRatingDto(
+public record CustomerRoomRatingDto(
         String id,
         String name,
         String ratingId

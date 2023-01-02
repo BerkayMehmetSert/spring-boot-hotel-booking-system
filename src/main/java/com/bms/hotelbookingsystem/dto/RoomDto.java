@@ -14,6 +14,6 @@ public record RoomDto(
         String bookingId,
         String floorId,
         List<RoomRoomRatingDto> roomRatings,
-        List<RoomRoomKey> roomKeys
+        List<RoomRoomKeyDto> roomKeys
 ) {
 }
