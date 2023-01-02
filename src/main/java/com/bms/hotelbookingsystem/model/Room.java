@@ -53,9 +53,6 @@ public class Room {
     private Floor floor;
 
     @OneToMany(mappedBy = "room")
-    private List<Rent> rents;
-
-    @OneToMany(mappedBy = "room")
     private List<RoomRating> roomRatings;
 
     @OneToMany(mappedBy = "room")

@@ -14,14 +14,17 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Floor {
+public class Rating {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(nullable = false, length = 16)
-    private String number;
+    @Column(nullable = false, length = 5)
+    private Integer value;
+
+    @Column(nullable = false, length = 140)
+    private String description;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
@@ -29,6 +32,6 @@ public class Floor {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate updatedAt;
 
-    @OneToMany(mappedBy = "floor")
-    private List<Room> rooms;
+    @OneToMany(mappedBy = "rating")
+    private List<RoomRating> roomRatings;
 }

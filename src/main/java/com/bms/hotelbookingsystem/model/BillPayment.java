@@ -8,20 +8,16 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Floor {
+public class BillPayment {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
-
-    @Column(nullable = false, length = 16)
-    private String number;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
@@ -29,6 +25,11 @@ public class Floor {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate updatedAt;
 
-    @OneToMany(mappedBy = "floor")
-    private List<Room> rooms;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_type_id")
+    private PaymentType paymentType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "booking_date_id")
+    private BookingDate bookingDate;
 }

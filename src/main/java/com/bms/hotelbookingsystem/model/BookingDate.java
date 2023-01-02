@@ -6,7 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -14,14 +17,17 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Floor {
+public class BookingDate {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(nullable = false, length = 16)
-    private String number;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate checkInDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate checkOutDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
@@ -29,6 +35,9 @@ public class Floor {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate updatedAt;
 
-    @OneToMany(mappedBy = "floor")
-    private List<Room> rooms;
+    @OneToMany(mappedBy = "bookingDate")
+    private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "bookingDate")
+    private List<BillPayment> billPayments;
 }

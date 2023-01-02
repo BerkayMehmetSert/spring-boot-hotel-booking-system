@@ -1,34 +1,32 @@
 package com.bms.hotelbookingsystem.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Floor {
+public class RoomKey {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(nullable = false, length = 16)
-    private String number;
+    @Column(nullable = false)
+    private String keyCode;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createdAt;
+    @Column(nullable = false)
+    private Boolean isActive;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate updatedAt;
+    @Column(nullable = false)
+    private Boolean isMaster;
 
-    @OneToMany(mappedBy = "floor")
-    private List<Room> rooms;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "room_id")
+    private Room room;
 }
