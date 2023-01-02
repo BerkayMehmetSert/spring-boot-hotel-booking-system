@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseRoomKeyRequest {
-    private String keyCode;
     private Boolean isActive;
     private Boolean isMaster;
     private String roomId;

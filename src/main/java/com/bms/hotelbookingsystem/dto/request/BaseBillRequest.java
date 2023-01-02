@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BaseBillRequest {
     private Double price;
-    private String rentId;
 }
