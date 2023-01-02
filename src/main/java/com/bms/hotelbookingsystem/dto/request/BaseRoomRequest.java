@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseRoomRequest {
+    private String roomNumber;
     private boolean isSmoking;
     private String customerId;
     private String roomTypeId;

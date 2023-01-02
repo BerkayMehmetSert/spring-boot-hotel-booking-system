@@ -52,6 +52,7 @@ public class BusinessLogMessage {
     }
 
     public static class BookingDate {
+
         private BookingDate() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -64,6 +65,7 @@ public class BusinessLogMessage {
         public static final String BOOKING_DATE_LISTED = "BookingDate listed successfully";
         public static final String BOOKING_DATE_FOUND = "BookingDate found successfully : {}";
         public static final String BOOKING_DATE_LIST_EMPTY = "BookingDate list is empty";
+        public static final String BOOKING_DATE_CHECK_OUT_DATE_UPDATED = "BookingDate checkOutDate updated successfully : {}";
     }
 
     public static class Customer {
@@ -79,6 +81,7 @@ public class BusinessLogMessage {
         public static final String CUSTOMER_LISTED = "Customer listed successfully";
         public static final String CUSTOMER_FOUND = "Customer found successfully : {}";
         public static final String CUSTOMER_LIST_EMPTY = "Customer list is empty";
+        public static final String CUSTOMER_ADDRESS_UPDATED = "Customer address updated successfully : {}";
     }
 
     public static class Floor {
@@ -142,6 +145,9 @@ public class BusinessLogMessage {
     }
 
     public static class Room {
+        public static final String ROOM_STATUS_UPDATED = "Room status updated successfully : {}";
+        public static final String ROOM_CUSTOMER_UPDATED = "Room customer updated successfully : {}";
+
         private Room() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }

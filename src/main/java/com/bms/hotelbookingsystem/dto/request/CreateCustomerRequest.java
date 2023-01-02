@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class CreateCustomerRequest extends BaseCustomerRequest{
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
     private String nationalId;
     private String passportId;
 }

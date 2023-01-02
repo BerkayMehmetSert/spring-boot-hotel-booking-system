@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class PaymentDtoConverter {
+public class PaymentTypeDtoConverter {
     public PaymentTypeDto convert(PaymentType from) {
         return new PaymentTypeDto(
                 from.getId(),

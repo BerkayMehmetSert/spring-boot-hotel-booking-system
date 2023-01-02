@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseFloorRequest {
-    private String floorNumber;
+    private String number;
 }

@@ -5,7 +5,7 @@ public class ControllerLogMessage {
         throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
     }
 
-    public static class Bill{
+    public static class Bill {
         private Bill() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -17,7 +17,7 @@ public class ControllerLogMessage {
         public static final String BILL_LISTED = "Bill API : Listed successfully";
     }
 
-    public static class BillPayment{
+    public static class BillPayment {
         private BillPayment() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -29,7 +29,7 @@ public class ControllerLogMessage {
         public static final String BILL_PAYMENT_LISTED = "BillPayment API : Listed successfully";
     }
 
-    public static class Booking{
+    public static class Booking {
         private Booking() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -41,7 +41,8 @@ public class ControllerLogMessage {
         public static final String BOOKING_LISTED = "Booking API : Listed successfully";
     }
 
-    public static class BookingDate{
+    public static class BookingDate {
+
         private BookingDate() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -51,9 +52,11 @@ public class ControllerLogMessage {
         public static final String BOOKING_DATE_DELETED = "BookingDate API : Deleted successfully : {}";
         public static final String BOOKING_DATE_FOUND = "BookingDate API : Found successfully : {}";
         public static final String BOOKING_DATE_LISTED = "BookingDate API : Listed successfully";
+        public static final String BOOKING_DATE_CHECK_OUT_DATE_UPDATED = "BookingDate API : Check out date updated successfully : {}";
     }
 
-    public static class Customer{
+    public static class Customer {
+
         private Customer() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -63,9 +66,10 @@ public class ControllerLogMessage {
         public static final String CUSTOMER_DELETED = "Customer API : Deleted successfully : {}";
         public static final String CUSTOMER_FOUND = "Customer API : Found successfully : {}";
         public static final String CUSTOMER_LISTED = "Customer API : Listed successfully";
+        public static final String CUSTOMER_ADDRESS_UPDATED = "Customer API : Address updated successfully : {}";
     }
 
-    public static class Floor{
+    public static class Floor {
         private Floor() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -77,7 +81,7 @@ public class ControllerLogMessage {
         public static final String FLOOR_LISTED = "Floor API : Listed successfully";
     }
 
-    public static class PaymentType{
+    public static class PaymentType {
         private PaymentType() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -89,7 +93,7 @@ public class ControllerLogMessage {
         public static final String PAYMENT_TYPE_LISTED = "PaymentType API : Listed successfully";
     }
 
-    public static class Rating{
+    public static class Rating {
         private Rating() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -101,7 +105,7 @@ public class ControllerLogMessage {
         public static final String RATING_LISTED = "Rating API : Listed successfully";
     }
 
-    public static class Rent{
+    public static class Rent {
         private Rent() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -113,7 +117,10 @@ public class ControllerLogMessage {
         public static final String RENT_LISTED = "Rent API : Listed successfully";
     }
 
-    public static class Room{
+    public static class Room {
+        public static final String ROOM_STATUS_UPDATED = "Room API : Status updated successfully : {}";
+        public static final String ROOM_CUSTOMER_UPDATED = "Room API : Customer updated successfully : {}";
+
         private Room() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -125,7 +132,7 @@ public class ControllerLogMessage {
         public static final String ROOM_LISTED = "Room API : Listed successfully";
     }
 
-    public static class RoomKey{
+    public static class RoomKey {
         private RoomKey() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -137,7 +144,7 @@ public class ControllerLogMessage {
         public static final String ROOM_KEY_LISTED = "RoomKey API : Listed successfully";
     }
 
-    public static class RoomRating{
+    public static class RoomRating {
         private RoomRating() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
@@ -149,7 +156,7 @@ public class ControllerLogMessage {
         public static final String ROOM_RATING_LISTED = "RoomRating API : Listed successfully";
     }
 
-    public static class RoomType{
+    public static class RoomType {
         private RoomType() {
             throw new IllegalStateException(BusinessMessage.ILLEGAL_STATE_EXCEPTION);
         }
