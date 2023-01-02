@@ -1,4 +1,4 @@
-package com.bms.hotelbookingsystem.converter;
+package com.bms.hotelbookingsystem.dto.converter;
 
 import com.bms.hotelbookingsystem.dto.RoomTypeDto;
 import com.bms.hotelbookingsystem.model.RoomType;
