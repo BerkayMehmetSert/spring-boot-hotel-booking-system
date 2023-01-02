@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class BookingController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createBooking(@RequestBody CreateBookingRequest request) {
+    public ResponseEntity<Void> createBooking(@Valid @RequestBody CreateBookingRequest request) {
         bookingService.createBooking(request);
 
         log.info(ControllerLogMessage.Booking.BOOKING_CREATED);
@@ -30,7 +31,8 @@ public class BookingController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateBooking(@PathVariable String id, @RequestBody UpdateBookingRequest request) {
+    public ResponseEntity<Void> updateBooking(@PathVariable String id,
+                                              @Valid @RequestBody UpdateBookingRequest request) {
         bookingService.updateBooking(id, request);
 
         log.info(ControllerLogMessage.Booking.BOOKING_UPDATED + id);

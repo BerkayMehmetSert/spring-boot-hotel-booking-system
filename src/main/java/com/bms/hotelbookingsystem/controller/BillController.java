@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class BillController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createBill(@RequestBody CreateBillRequest request) {
+    public ResponseEntity<Void> createBill(@Valid @RequestBody CreateBillRequest request) {
         billService.createBill(request);
 
         log.info(ControllerLogMessage.Bill.BILL_CREATED);
@@ -30,7 +31,7 @@ public class BillController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateBill(@PathVariable String id, @RequestBody UpdateBillRequest request) {
+    public ResponseEntity<Void> updateBill(@PathVariable String id, @Valid @RequestBody UpdateBillRequest request) {
         billService.updateBill(id, request);
 
         log.info(ControllerLogMessage.Bill.BILL_UPDATED + id);

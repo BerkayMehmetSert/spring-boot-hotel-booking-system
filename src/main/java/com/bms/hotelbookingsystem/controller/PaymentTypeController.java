@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class PaymentTypeController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createPaymentType(@RequestBody CreatePaymentTypeRequest request) {
+    public ResponseEntity<Void> createPaymentType(@Valid @RequestBody CreatePaymentTypeRequest request) {
         paymentTypeService.createPaymentType(request);
 
         log.info(ControllerLogMessage.RoomType.ROOM_TYPE_CREATED);
@@ -31,7 +32,7 @@ public class PaymentTypeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> updatePaymentType(@PathVariable String id,
-                                                  @RequestBody UpdatePaymentTypeRequest request) {
+                                                  @Valid @RequestBody UpdatePaymentTypeRequest request) {
         paymentTypeService.updatePaymentType(id, request);
 
         log.info(ControllerLogMessage.RoomType.ROOM_TYPE_UPDATED + id);

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class BookingDateController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createBookingDate(@RequestBody CreateBookingDateRequest request) {
+    public ResponseEntity<Void> createBookingDate(@Valid @RequestBody CreateBookingDateRequest request) {
         bookingDateService.createBookingDate(request);
 
         log.info(ControllerLogMessage.BookingDate.BOOKING_DATE_CREATED);
@@ -31,7 +32,8 @@ public class BookingDateController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateBookingDate(@PathVariable String id, @RequestBody UpdateBookingDateRequest request) {
+    public ResponseEntity<Void> updateBookingDate(@PathVariable String id,
+                                                  @Valid @RequestBody UpdateBookingDateRequest request) {
         bookingDateService.updateBookingDate(id, request);
 
         log.info(ControllerLogMessage.BookingDate.BOOKING_DATE_UPDATED + id);
@@ -40,7 +42,7 @@ public class BookingDateController {
 
     @PutMapping("/{id}/check-out-date")
     public ResponseEntity<Void> updateBookingDateCheckOutDate(@PathVariable String id,
-                                                              @RequestParam LocalDate checkOutDate) {
+                                                              @Valid @RequestParam LocalDate checkOutDate) {
         bookingDateService.updateBookingDateCheckOutDate(id, checkOutDate);
 
         log.info(ControllerLogMessage.BookingDate.BOOKING_DATE_CHECK_OUT_DATE_UPDATED + id);

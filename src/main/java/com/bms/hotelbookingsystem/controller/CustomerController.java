@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createCustomer(@RequestBody CreateCustomerRequest request) {
+    public ResponseEntity<Void> createCustomer(@Valid @RequestBody CreateCustomerRequest request) {
         customerService.createCustomer(request);
 
         log.info(ControllerLogMessage.Customer.CUSTOMER_CREATED);
@@ -31,7 +32,8 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateCustomer(@PathVariable String id, @RequestBody UpdateCustomerRequest request) {
+    public ResponseEntity<Void> updateCustomer(@PathVariable String id,
+                                               @Valid @RequestBody UpdateCustomerRequest request) {
         customerService.updateCustomer(id, request);
 
         log.info(ControllerLogMessage.Customer.CUSTOMER_UPDATED + id);
@@ -40,7 +42,7 @@ public class CustomerController {
 
     @PutMapping("/{id}/address")
     public ResponseEntity<Void> updateCustomerAddress(@PathVariable String id,
-                                                      @RequestBody UpdateCustomerAddressRequest request) {
+                                                      @Valid @RequestBody UpdateCustomerAddressRequest request) {
         customerService.updateCustomerAddress(id, request);
 
         log.info(ControllerLogMessage.Customer.CUSTOMER_ADDRESS_UPDATED + id);

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class RentController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createRent(@RequestBody CreateRentRequest request) {
+    public ResponseEntity<Void> createRent(@Valid @RequestBody CreateRentRequest request) {
         rentService.createRent(request);
 
         log.info(ControllerLogMessage.Rent.RENT_CREATED);
@@ -30,7 +31,8 @@ public class RentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateRent(@PathVariable String id, @RequestBody UpdateRentRequest request) {
+    public ResponseEntity<Void> updateRent(@PathVariable String id,
+                                           @Valid @RequestBody UpdateRentRequest request) {
         rentService.updateRent(id, request);
 
         log.info(ControllerLogMessage.Rent.RENT_UPDATED + id);

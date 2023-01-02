@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class FloorController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createFloor(@RequestBody CreateFloorRequest request) {
+    public ResponseEntity<Void> createFloor(@Valid @RequestBody CreateFloorRequest request) {
         floorService.createFloor(request);
 
         log.info(ControllerLogMessage.Floor.FLOOR_CREATED);
@@ -31,7 +32,8 @@ public class FloorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateFloor(@PathVariable String id, @RequestBody UpdateFloorRequest request) {
+    public ResponseEntity<Void> updateFloor(@PathVariable String id,
+                                            @Valid @RequestBody UpdateFloorRequest request) {
         floorService.updateFloor(id, request);
 
         log.info(ControllerLogMessage.Floor.FLOOR_UPDATED + id);

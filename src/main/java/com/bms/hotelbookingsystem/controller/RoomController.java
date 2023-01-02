@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class RoomController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createRoom(@RequestBody CreateRoomRequest request) {
+    public ResponseEntity<Void> createRoom(@Valid @RequestBody CreateRoomRequest request) {
         roomService.createRoom(request);
 
         log.info(ControllerLogMessage.Room.ROOM_CREATED);
@@ -31,7 +32,8 @@ public class RoomController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateRoom(@PathVariable String id, @RequestBody UpdateRoomRequest request) {
+    public ResponseEntity<Void> updateRoom(@PathVariable String id,
+                                           @Valid @RequestBody UpdateRoomRequest request) {
         roomService.updateRoom(id, request);
 
         log.info(ControllerLogMessage.Room.ROOM_UPDATED + id);
@@ -39,7 +41,8 @@ public class RoomController {
     }
 
     @PutMapping("/{id}/roomStatus")
-    public ResponseEntity<Void> updateRoomStatus(@PathVariable String id, @RequestParam RoomStatus status) {
+    public ResponseEntity<Void> updateRoomStatus(@PathVariable String id,
+                                                 @Valid @RequestParam RoomStatus status) {
         roomService.updateRoomStatus(id, status);
 
         log.info(ControllerLogMessage.Room.ROOM_STATUS_UPDATED + id);
@@ -47,7 +50,8 @@ public class RoomController {
     }
 
     @PutMapping("/{id}/customer")
-    public ResponseEntity<Void> updateRoomCustomer(@PathVariable String id, @RequestParam String customerId) {
+    public ResponseEntity<Void> updateRoomCustomer(@PathVariable String id,
+                                                   @Valid @RequestParam String customerId) {
         roomService.updateRoomCustomer(id, customerId);
 
         log.info(ControllerLogMessage.Room.ROOM_CUSTOMER_UPDATED + id);

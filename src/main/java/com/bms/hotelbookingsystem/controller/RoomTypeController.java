@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class RoomTypeController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createRoomType(@RequestBody CreateRoomTypeRequest request) {
+    public ResponseEntity<Void> createRoomType(@Valid @RequestBody CreateRoomTypeRequest request) {
         roomTypeService.createRoomType(request);
 
         log.info(ControllerLogMessage.RoomType.ROOM_TYPE_CREATED);
@@ -30,7 +31,8 @@ public class RoomTypeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateRoomType(@PathVariable String id, @RequestBody UpdateRoomTypeRequest request) {
+    public ResponseEntity<Void> updateRoomType(@PathVariable String id,
+                                               @Valid @RequestBody UpdateRoomTypeRequest request) {
         roomTypeService.updateRoomType(id, request);
 
         log.info(ControllerLogMessage.RoomType.ROOM_TYPE_UPDATED + id);
